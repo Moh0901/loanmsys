@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="col text-center fw-bold p-2 mb-3">
+    <span class="fs-3">Loans</span>
+  </div>
+
+  <input type="text"  [(ngModel)]="searchText" placeholder="Type to Search...">
+
+  <button class="rounded rounded-pill btn-outline-success" style="float: 'right';" routerLink="/addloan"
+    *ngIf="role!='User'">
+    <i class="bi bi-plus-circle"></i>Add Loan</button>
+
+  <table class="table table-hover shadow shadow-lg mt-2">
+    <thead>
+      <tr>
+        <th>Sr.No.</th>
+        <th>Full Name</th>
+        <th>Property Address</th>
+        <th>Amount</th>
+        <th>Loan No.</th>
+        <th>Loan Type</th>
+        <th>Loan Term</th>
+        <th *ngIf="role!='User'">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of allLoans| search:searchText |paginate:{itemsPerPage:6,currentPage:p}; index as j">
+        <td>{{(p-1)*6+j+1}}</td>
+        <td>{{i.fname +' '+ i.lname}}</td>
+        <td>{{i.paddress}}</td>
+        <td>{{i.lamount}}</td>
+        <td>{{i.lnum}}</td>
+        <td>{{i.ltype}}</td>
+        <td>{{i.lterm}}</td>
+        <td *ngIf="role!='User'">
+          <a routerLink="/editloan/{{i.id}}"><i
+              class="bi bi-pencil-square p-1 rounded rounded-pill btn-outline-warning fs-5"></i> </a>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+              class="bi bi-trash3 rounded rounded-pill btn-outline-danger fs-5"></i> </a>
+        </td>
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Loan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure want to delete?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" (click)="deleteLoan(i.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagi text-center">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+</div>
+
+

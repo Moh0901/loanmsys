@@ -1,0 +1,58 @@
+<form class="border p-3 rounded-3 shadow shadow-lg p-5" [formGroup]="editUserForm" (ngSubmit)="editUserSubmitted()">
+    <div class="row g-0">
+      <diV class="col text-center fw-bold p-2 mb-3">
+        <span class="fs-3">Edit User</span>
+      </diV>
+    </div>
+  
+    <div class="row">
+      <div class="col mb-3 fw-bold">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" [readonly]="true">
+        <div class="form-text text-danger text-center" *ngIf="Name.errors?.['required'] && (Name.touched||Name.dirty)">
+          Name is required.
+         </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col mb-3 fw-bold">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" formControlName="username">
+        <div class="form-text text-danger text-center" *ngIf="userName.errors?.['required'] && (userName.touched||userName.dirty)">
+          UserName is required.
+         </div>
+      </div>
+    </div>
+  
+  
+    <div class="row">
+      <div class="col mb-3 fw-bold">
+        <label for="password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="password" formControlName="password">
+        <div class="form-text text-danger text-center" *ngIf="Password.errors?.['required'] && (Password.touched||Password.dirty)">
+          Password is required.
+         </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col mb-3 fw-bold">
+        <label for="role" class="form-label">Role</label>
+        <input type="text" class="form-control" id="role" formControlName="role" [readonly]="true">
+        <div class="form-text text-danger text-center" *ngIf="Role.errors?.['required'] && (Role.touched||Role.dirty)">
+          Role is required.
+         </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="d-grid text-center">
+          <button type="submit" class="btn btn-outline-primary mt-3"> Update User </button>
+        </div>
+      </div>
+      
+    </div>
+    
+  </form>

@@ -1,0 +1,12 @@
+#sect1{
+    height: 525px;  
+    background-image: url("../../../assets/home3.jpeg"); 
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    width: 100%;
+    opacity: 0.9;
+}
+
+/* #sect2{
+    display: flex;
+} */

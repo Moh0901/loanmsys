@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="col text-center fw-bold p-2 mb-3">
+        <span class="fs-3">Users</span>
+      </div>
+
+      <button class="rounded rounded-pill btn-outline-success" routerLink="/adduser" style="float: 'right';"><i class="bi bi-person-plus"></i>Add User</button>
+      <table class="table table-hover shadow shadow-lg ">
+        <thead>
+            <tr>
+                <th>Sr.No.</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of allUsers| paginate:{itemsPerPage:5,currentPage:p};index as j">
+            <td>{{(p-1)*5+j+1}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.username}}</td>
+            <td>{{i.role}}</td>
+            <td>  
+              <a routerLink="/edituser/{{i.id}}"><i class="bi bi-pencil-square p-1 rounded rounded-pill btn-outline-warning fs-5"></i> </a>
+              <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i  class="bi bi-trash3 rounded rounded-pill btn-outline-danger fs-5"></i> </a>
+            </td>
+              <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure want to delete?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" (click)="deleteUser(i.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagi text-center">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+</div>
