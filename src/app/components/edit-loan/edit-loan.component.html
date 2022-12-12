@@ -45,7 +45,7 @@
   
       <div class="col mb-3 fw-bold">
         <label for="amount" class="form-label">Loan Amount</label>
-        <input type="text" class="form-control" id="amount" formControlName="amount">
+        <input type="text" class="form-control" id="amount" formControlName="amount" [readonly]="true">
         <div class="form-text text-danger text-center" *ngIf="lAmount.errors?.['required'] && (lAmount.touched||lAmount.dirty)">
           Loan Amount is required.
          </div>
@@ -55,7 +55,7 @@
     <div class="row">
       <div class="col mb-3 fw-bold">
         <label for="ltype" class="form-label">Loan Type</label>
-        <input type="text" class="form-control" id="ltype" formControlName="ltype">
+        <input type="text" class="form-control" id="ltype" formControlName="ltype" [readonly]="true">
         <!-- <select formArrayName="ltype" class="form-control">
           <option value="" >Select any one</option>
           <option value="home" >Home</option>
@@ -69,7 +69,7 @@
   
       <div class="col mb-3 fw-bold ">
         <label for="lterm" class="form-label">Loan Term</label>
-        <input type="text" class="form-control" id="lterm" formControlName="lterm">
+        <input type="text" class="form-control" id="lterm" formControlName="lterm" [readonly]="true">
         <div class="form-text text-danger text-center" *ngIf="lTerm.errors?.['required'] && (lTerm.touched||lTerm.dirty)">
           Loan Term is required.
          </div>

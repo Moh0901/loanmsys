@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
      localStorage.setItem("role",userinfo.role);
      this.currentUser.next(data);
   }
-
+  
   logout=()=>{
     localStorage.clear();
     this.toastr.success("LogOut Successfully")
