@@ -1,63 +1,73 @@
 <form class="border p-3 rounded-3 shadow shadow-lg p-5" [formGroup]="addUserForm" (ngSubmit)="addUserSubmitted()">
-    <div class="row g-0">
-      <diV class="col text-center fw-bold p-2 mb-3">
-        <span class="fs-3">Add User</span>
-      </diV>
-    </div>
-  
-    <div class="row">
-      <div class="col mb-3 fw-bold">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" formControlName="name">
-        <div class="form-text text-danger text-center" *ngIf="Name.errors?.['required'] && (Name.touched||Name.dirty)">
-          Name is required.
-        </div>
-        <div class="form-text text-danger text-center" *ngIf="Name.errors?.['pattern'] && (Name.touched||Name.dirty)">
-          Alphabets are required only.
-        </div>
+  <div class="row g-0">
+    <diV class="col text-center fw-bold p-2 mb-3">
+      <span class="fs-3">Add User</span>
+    </diV>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3 fw-bold">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div class="form-text text-danger text-center" *ngIf="Name.errors?.['required'] && (Name.touched||Name.dirty)">
+        Name is required.
+      </div>
+      <div class="form-text text-danger text-center" *ngIf="Name.errors?.['pattern'] && (Name.touched||Name.dirty)">
+        Alphabets are required only.
       </div>
     </div>
-  
-    <div class="row">
-      <div class="col mb-3 fw-bold">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" formControlName="username" autocomplete="off">
-        <div class="form-text text-danger text-center" *ngIf="userName.errors?.['required'] && (userName.touched||userName.dirty)">
-          UserName is required.
-         </div>
-         <div class="form-text text-danger text-center" *ngIf="userName.errors?.['nameIsNotAllowed'] ">
-          UserName is exist.
+  </div>
+
+  <div class="row">
+    <div class="col mb-3 fw-bold">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" formControlName="username" autocomplete="off">
+      <div class="form-text text-danger text-center"
+        *ngIf="userName.errors?.['required'] && (userName.touched||userName.dirty)">
+        Username is required.
       </div>
+      <div class="form-text text-danger text-center"
+        *ngIf="userName.errors?.['pattern'] && (userName.touched||userName.dirty)">
+        Start with alphabets only.
       </div>
-    </div>
-  
-    <div class="row">
-      <div class="col mb-3 fw-bold">
-        <label for="password" class="form-label">Password</label>
-        <input type="text" class="form-control" id="password" formControlName="password">
-        <div class="form-text text-danger text-center" *ngIf="Password.errors?.['required'] && (Password.touched||Password.dirty)">
-          Password is required.
-         </div>
+      <div class="form-text text-danger text-center" *ngIf="userName.errors?.['nameIsNotAllowed'] ">
+        Username is exist.
       </div>
     </div>
-  
-    <div class="row">
-      <div class="col mb-3 fw-bold">
-        <label for="role" class="form-label">Role</label>
-        <input type="text" class="form-control" id="role" formControlName="role">
-        <div class="form-text text-danger text-center" *ngIf="Role.errors?.['required'] && (Role.touched||Role.dirty)">
-          Role is required.
-         </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3 fw-bold">
+      <label for="password" class="form-label">Password</label>
+      <input type="text" class="form-control" id="password" formControlName="password">
+      <div class="form-text text-danger text-center"
+        *ngIf="Password.errors?.['required'] && (Password.touched||Password.dirty)">
+        Password is required.
+      </div>
+      <div class="form-text text-danger text-center"
+        *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && (Password.touched||Password.dirty)">
+        minimum 5 and maximum 15.
       </div>
     </div>
-  
-    <div class="row">
-      <div class="col-6 offset-3">
-        <div class="d-grid text-center">
-          <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="addUserForm.invalid"> Add </button>
-        </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3 fw-bold">
+      <label for="role" class="form-label">Role</label>
+      <input type="text" class="form-control" id="role" formControlName="role">
+      <div class="form-text text-danger text-center" *ngIf="Role.errors?.['required'] && (Role.touched||Role.dirty)">
+        Role is required.
       </div>
-      
     </div>
-    
-  </form>
+  </div>
+
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid text-center">
+        <button type="submit" class="btn btn-outline-primary mt-3" [disabled]="addUserForm.invalid"> Add </button>
+      </div>
+    </div>
+
+  </div>
+
+</form>
