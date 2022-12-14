@@ -49,6 +49,7 @@ export class AddUserComponent implements OnInit {
     })
   }
 
+  //to check user already exist or not
   chkuserValidator(control:FormControl){
     if(this.arrayUsername.indexOf(control.value.toLowerCase())!==-1){
       return {'nameIsNotAllowed':true}
