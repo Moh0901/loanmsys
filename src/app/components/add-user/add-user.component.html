@@ -11,17 +11,23 @@
         <input type="text" class="form-control" id="name" formControlName="name">
         <div class="form-text text-danger text-center" *ngIf="Name.errors?.['required'] && (Name.touched||Name.dirty)">
           Name is required.
-         </div>
+        </div>
+        <div class="form-text text-danger text-center" *ngIf="Name.errors?.['pattern'] && (Name.touched||Name.dirty)">
+          Alphabets are required only.
+        </div>
       </div>
     </div>
   
     <div class="row">
       <div class="col mb-3 fw-bold">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" formControlName="username">
+        <input type="text" class="form-control" id="username" formControlName="username" autocomplete="off">
         <div class="form-text text-danger text-center" *ngIf="userName.errors?.['required'] && (userName.touched||userName.dirty)">
           UserName is required.
          </div>
+         <div class="form-text text-danger text-center" *ngIf="userName.errors?.['nameIsNotAllowed'] ">
+          UserName is exist.
+      </div>
       </div>
     </div>
   
