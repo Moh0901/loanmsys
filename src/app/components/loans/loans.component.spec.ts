@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { of } from 'rxjs';
@@ -15,7 +16,7 @@ describe('LoansComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoansComponent, SearchPipe],
-      imports: [HttpClientTestingModule, ToastrModule.forRoot(), NgxPaginationModule]
+      imports: [HttpClientTestingModule, ToastrModule.forRoot(), NgxPaginationModule, Ng2OrderModule]
     })
       .compileComponents();
 

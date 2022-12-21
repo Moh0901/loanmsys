@@ -8,7 +8,7 @@ import { LoanAppService } from 'src/app/Services/loan-app.service';
   selector: 'app-loans',
   templateUrl: './loans.component.html',
   styleUrls: ['./loans.component.css'],
-  
+
 })
 
 export class LoansComponent implements OnInit {
@@ -18,7 +18,7 @@ export class LoansComponent implements OnInit {
   firstname: any;
   lnum: any;
   p: number = 1;
-  searchText='' ;
+  searchText = '';
   key = 'fname';
   reverse: boolean = false;
 
@@ -29,9 +29,12 @@ export class LoansComponent implements OnInit {
       this.loanAppService.getAllLoans().subscribe(res => {
         this.allLoans = res;
         console.log(this.allLoans)
+        //captialize first charater
+        this.allLoans.forEach((element: any) => {
+          element.fname = element.fname.charAt(0).toUpperCase() + element.fname.slice(1)
+        });
       })
     }
-
   }
 
   deleteLoan(id: any) {
@@ -44,8 +47,8 @@ export class LoansComponent implements OnInit {
   }
 
   //for sorting 
-  sortByName(key:any){
-    this.key= key;
+  sortByName(key: any) {
+    this.key = key;
     this.reverse = !this.reverse;
   }
 
