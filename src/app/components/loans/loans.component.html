@@ -13,7 +13,7 @@
     <thead>
       <tr>
         <th>Sr.No.</th>
-        <th>Full Name</th>
+        <th>Full Name &nbsp;<i (click)="sortByName('fname')" class="fa fa-sort"></i></th>
         <th>Property Address</th>
         <th>Amount</th>
         <th>Loan No.</th>
@@ -23,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let i of allLoans| search:searchText |paginate:{itemsPerPage:6,currentPage:p}; index as j">
+      <tr *ngFor="let i of allLoans| search:searchText| orderBy: key : reverse |paginate:{itemsPerPage:6,currentPage:p}; index as j">
         <td>{{(p-1)*6+j+1}}</td>
         <td>{{i.fname +' '+ i.lname}}</td>
         <td>{{i.paddress}}</td>

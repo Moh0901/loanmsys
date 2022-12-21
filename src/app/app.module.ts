@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from './search.pipe';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SearchPipe } from './search.pipe';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2OrderModule
   ],
   providers: [
     LoanAppService,

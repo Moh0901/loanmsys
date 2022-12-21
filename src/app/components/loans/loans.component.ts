@@ -19,6 +19,8 @@ export class LoansComponent implements OnInit {
   lnum: any;
   p: number = 1;
   searchText='' ;
+  key = 'fname';
+  reverse: boolean = false;
 
   constructor(private loanAppService: LoanAppService, private toastr: ToastrService, private router: Router) { }
 
@@ -39,6 +41,12 @@ export class LoansComponent implements OnInit {
       this.ngOnInit();
       window.location.reload();
     })
+  }
+
+  //for sorting 
+  sortByName(key:any){
+    this.key= key;
+    this.reverse = !this.reverse;
   }
 
   // SearchByName() {

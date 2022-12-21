@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col mb-3 fw-bold">
         <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstname" formControlName="firstname" [readonly]="true">
+        <input type="text" class="form-control" id="firstname" formControlName="firstname" >
          <div class="form-text text-danger text-center" *ngIf="fName.errors?.['required'] && (fName.touched||fName.dirty)">
           First Name is required.
          </div>
