@@ -55,13 +55,13 @@
     <div class="row">
       <div class="col mb-3 fw-bold">
         <label for="ltype" class="form-label">Loan Type</label>
-        <input type="text" class="form-control" id="ltype" formControlName="ltype" >
-        <!-- <select formArrayName="ltype" class="form-control">
-          <option value="" >Select any one</option>
+        <!-- <input type="text" class="form-control" id="ltype" formControlName="ltype" > -->
+        <select formControlName="ltype" class="form-control">
+          <option >Select any one</option>
           <option value="Home" >Home</option>
-          <option value="study" >Study</option>
-          <option value="vehicle" >Vehicle</option>
-        </select> -->
+          <option value="Study" >Study</option>
+          <option value="Vehicle" >Vehicle</option>
+        </select>
         <div class="form-text text-danger text-center" *ngIf="lType.errors?.['required'] && (lType.touched||lType.dirty)">
           Loan Type is required.
          </div>
