@@ -37,6 +37,10 @@ export class LoansComponent implements OnInit {
     }
   }
 
+  delt(id:any){
+    alert('Are u sure you want to delete LoanID ' +id);
+    //this.deleteLoan(id);
+  }
   deleteLoan(id: any) {
     this.loanAppService.removeLoan(id).subscribe(res => {
       console.log(res)

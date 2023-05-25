@@ -73,5 +73,3 @@ export class AddUserComponent implements OnInit {
     return this.addUserForm.get("role") as FormControl;
   }
 }
-
-//
